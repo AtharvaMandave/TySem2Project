@@ -1,0 +1,230 @@
+/* ===================================================================
+   HERO SECTION STYLES — Background Image Slideshow
+   =================================================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 6rem;
+  overflow: hidden;
+}
+
+/* -------------------------------------------------------------------
+   Slideshow wrapper & slides
+   ------------------------------------------------------------------- */
+.slideshowWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  will-change: opacity;
+}
+
+.slideActive {
+  opacity: 1;
+}
+
+.slideImage {
+  object-fit: cover;
+  object-position: center;
+  /* Subtle Ken‑Burns zoom effect on the active slide */
+  transform: scale(1.05);
+  transition: transform 6s ease-out;
+}
+
+.slideActive .slideImage {
+  transform: scale(1);
+}
+
+/* -------------------------------------------------------------------
+   Dark overlay — ensures text readability over any image
+   ------------------------------------------------------------------- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.35) 0%,
+    rgba(10, 22, 40, 0.55) 40%,
+    rgba(10, 22, 40, 0.82) 100%
+  );
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------------------
+   Content container
+   ------------------------------------------------------------------- */
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* -------------------------------------------------------------------
+   Heading
+   ------------------------------------------------------------------- */
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+}
+
+.headingLine {
+  display: block;
+  font-style: italic;
+}
+
+.headingAccent {
+  display: block;
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+/* -------------------------------------------------------------------
+   Description
+   ------------------------------------------------------------------- */
+.description {
+  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+  line-height: 1.7;
+  color: var(--color-gray-300);
+  max-width: 540px;
+  margin-bottom: 2.5rem;
+}
+
+/* -------------------------------------------------------------------
+   Action buttons
+   ------------------------------------------------------------------- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* -------------------------------------------------------------------
+   Slide indicators (dots)
+   ------------------------------------------------------------------- */
+.indicators {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--transition-base);
+}
+
+.indicator:hover {
+  border-color: var(--color-white);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.indicatorActive {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  transform: scale(1.2);
+}
+
+/* -------------------------------------------------------------------
+   Prev / Next arrows
+   ------------------------------------------------------------------- */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  background: rgba(10, 22, 40, 0.4);
+  color: var(--color-white);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: all var(--transition-base);
+  opacity: 0;
+  padding: 0;
+}
+
+.hero:hover .arrow {
+  opacity: 1;
+}
+
+.arrow:hover {
+  background: rgba(200, 168, 78, 0.25);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.arrowLeft {
+  left: 1.25rem;
+}
+
+.arrowRight {
+  right: 1.25rem;
+}
+
+/* -------------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .hero {
+    padding-bottom: 4rem;
+    align-items: center;
+  }
+
+  .content {
+    padding-top: 8rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions a {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Always show arrows on touch devices */
+  .arrow {
+    opacity: 1;
+    width: 36px;
+    height: 36px;
+  }
+
+  .arrowLeft {
+    left: 0.75rem;
+  }
+
+  .arrowRight {
+    right: 0.75rem;
+  }
+}

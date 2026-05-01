@@ -1,0 +1,253 @@
+/* ===================================================================
+   FOOTER STYLES
+   =================================================================== */
+
+.footer {
+  background-color: var(--color-navy);
+  color: var(--color-gray-300);
+}
+
+/* -------------------------------------------------------------------
+   Main Footer
+   ------------------------------------------------------------------- */
+.mainFooter {
+  padding: 4rem 2rem 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+}
+
+/* -------------------------------------------------------------------
+   Brand Column
+   ------------------------------------------------------------------- */
+.brandColumn {
+  padding-right: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.logoLetter {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.logoTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-white);
+}
+
+.brandDescription {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-gray-400);
+  margin-bottom: 1.5rem;
+}
+
+/* -------------------------------------------------------------------
+   Social Links
+   ------------------------------------------------------------------- */
+.socialLinks {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.socialLink {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray-400);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  transition: all var(--transition-base);
+}
+
+.socialLink:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+/* -------------------------------------------------------------------
+   Link Columns
+   ------------------------------------------------------------------- */
+.columnTitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin-bottom: 1.25rem;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerLink {
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+  transition: color var(--transition-fast);
+}
+
+.footerLink:hover {
+  color: var(--color-gold);
+}
+
+/* -------------------------------------------------------------------
+   Newsletter
+   ------------------------------------------------------------------- */
+.newsletterText {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-gray-400);
+  margin-bottom: 1rem;
+}
+
+.newsletterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.emailInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.emailInput::placeholder {
+  color: var(--color-gray-500);
+}
+
+.emailInput:focus {
+  border-color: var(--color-gold);
+}
+
+.subscribeBtn {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  background-color: var(--color-gold);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.subscribeBtn:hover {
+  background-color: var(--color-gold-hover);
+  transform: translateY(-1px);
+}
+
+/* -------------------------------------------------------------------
+   Bottom Bar
+   ------------------------------------------------------------------- */
+.bottomBar {
+  padding: 1.25rem 2rem;
+}
+
+.bottomContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright {
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: var(--color-gray-500);
+}
+
+.legalNav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.legalLink {
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+  transition: color var(--transition-fast);
+}
+
+.legalLink:hover {
+  color: var(--color-gold);
+}
+
+/* -------------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .brandColumn {
+    padding-right: 0;
+  }
+
+  .bottomContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .legalNav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

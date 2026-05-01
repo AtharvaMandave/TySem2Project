@@ -1,0 +1,443 @@
+/* ===================================================================
+   ALUMNI DIRECTORY PAGE STYLES
+   =================================================================== */
+
+.alumniPage {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--color-navy) 0%, #0d1f3c 100%);
+}
+
+/* ─── Hero Banner ─── */
+.heroBanner {
+  padding: 7rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroBanner::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 100%;
+  background: radial-gradient(ellipse, rgba(200, 168, 78, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: rgba(200, 168, 78, 0.1);
+  border: 1px solid rgba(200, 168, 78, 0.2);
+  border-radius: 100px;
+  padding: 0.5rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.heroTitleAccent {
+  color: var(--color-gold);
+}
+
+.heroSubtitle {
+  font-size: 1rem;
+  color: var(--color-gray-400);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ─── Filters & Search ─── */
+.filtersSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.filtersBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.searchInputWrapper {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-gray-500);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.65rem 0.85rem 0.65rem 2.5rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color var(--transition-base);
+}
+
+.searchInput::placeholder {
+  color: var(--color-gray-500);
+}
+
+.searchInput:focus {
+  border-color: var(--color-gold);
+}
+
+.filterSelect {
+  padding: 0.65rem 2.25rem 0.65rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236c757d' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  cursor: pointer;
+  transition: border-color var(--transition-base);
+  min-width: 150px;
+}
+
+.filterSelect:focus {
+  border-color: var(--color-gold);
+}
+
+.filterSelect option {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.resultCount {
+  font-size: 0.8rem;
+  color: var(--color-gray-400);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.resultCountNumber {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+/* ─── Alumni Grid ─── */
+.gridSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.alumniGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+/* ─── Alumni Card ─── */
+.alumniCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.alumniCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-hover), var(--color-gold));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.alumniCard:hover {
+  border-color: rgba(200, 168, 78, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.alumniCard:hover::before {
+  opacity: 1;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  flex-shrink: 0;
+}
+
+.cardName {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.15rem;
+}
+
+.cardYear {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  letter-spacing: 0.05em;
+}
+
+.cardDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.detailRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--color-gray-300);
+}
+
+.detailIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-gray-500);
+  flex-shrink: 0;
+}
+
+.detailLabel {
+  color: var(--color-gray-500);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  min-width: 55px;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 100px;
+  padding: 0.2rem 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+}
+
+/* ─── Connect Button ─── */
+.connectBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: transparent;
+  border: 1px solid rgba(200, 168, 78, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.connectBtn:hover:not(:disabled) {
+  background: rgba(200, 168, 78, 0.1);
+  border-color: var(--color-gold);
+  color: var(--color-gold-hover);
+  transform: translateY(-1px);
+}
+
+.connectBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ─── States: Loading, Empty, Error ─── */
+.loadingState,
+.emptyState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(200, 168, 78, 0.15);
+  border-top: 3px solid var(--color-gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1.25rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingText {
+  font-size: 0.9rem;
+  color: var(--color-gray-400);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.emptyTitle {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+}
+
+.emptySubtitle {
+  font-size: 0.9rem;
+  color: var(--color-gray-400);
+  max-width: 400px;
+}
+
+.errorText {
+  font-size: 0.9rem;
+  color: #f87171;
+  margin-bottom: 1rem;
+}
+
+.retryBtn {
+  padding: 0.6rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  background: var(--color-gold);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.retryBtn:hover {
+  background: var(--color-gold-hover);
+  transform: translateY(-1px);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .heroBanner {
+    padding: 6rem 1.5rem 2rem;
+  }
+
+  .filtersBar {
+    flex-direction: column;
+  }
+
+  .searchInputWrapper {
+    width: 100%;
+  }
+
+  .filterSelect {
+    width: 100%;
+  }
+
+  .resultCount {
+    margin-left: 0;
+  }
+
+  .alumniGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroBanner {
+    padding: 5.5rem 1rem 1.5rem;
+  }
+
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+}
